@@ -28,7 +28,7 @@ modelMetadataProvider.ConfigureWith(modelConfig => modelConfig
 var modelWithMetadata = await provider.GetModelMetadataAsync(modelInstance);
 ```
 
-#1, #2: Optionally, you can aggregate other metadatas, which will be merged depending on the main provider implementation.<br/><br/>
+\#1, #2: Optionally, you can aggregate other metadatas, which will be merged depending on the main provider implementation.<br/><br/>
 Now, metadatas may be used as such :
 ```C#
 // Get a list of available properties (public & private properties here)
