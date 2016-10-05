@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0d7924f0-e358-4669-a608-55be42b64a22</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Orc.Metadata.Model.Tests.Catel</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\CatelModelMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\CatelModelObjectWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\Metadatas\CatelModelPropertyDescriptorCollectionAccessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\CatelModelPropertyDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\CatelModelPropertyMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\CatelModelPropertyObjectWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\Metadatas\CatelModelPropertyValueMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Providers\CatelModelMetadataProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Properties\" />
+  </ItemGroup>
+</Project>

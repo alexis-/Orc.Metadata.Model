@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fd0e9715-2027-4db2-9520-7c202a023da1</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Orc.Metadata.Model.Tests</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Tests\Catel.Tests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tests\Helpers\Catel.TestModel.Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tests\Helpers\Metadata.Assert.Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tests\Helpers\Random.Helper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Tests\Models\Catel.TestModel.cs" />
+  </ItemGroup>
+</Project>

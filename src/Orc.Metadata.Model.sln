@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.Metadata.Model.Shared", "Orc.Metadata.Model\Orc.Metadata.Model.Shared\Orc.Metadata.Model.Shared.shproj", "{5B169DB3-4D02-4026-ABC7-412F86ECC8F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1BE8A738-AC82-4A58-B771-04E07596450A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{186B27D1-FF84-4CBB-8E96-163ABE112ED2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{7BAB87C9-7FC6-4796-AD0E-5C53C9B1AD8A}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Metadata.Model.NET40", "Orc.Metadata.Model\Orc.Metadata.Model.NET40\Orc.Metadata.Model.NET40.csproj", "{31F82C56-6FF2-479E-BA4C-5015C3CC8955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Metadata.Model.NET45", "Orc.Metadata.Model\Orc.Metadata.Model.NET45\Orc.Metadata.Model.NET45.csproj", "{EF8A15EF-7274-4340-93FC-A802DC277A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Metadata.Model.NET46", "Orc.Metadata.Model\Orc.Metadata.Model.NET46\Orc.Metadata.Model.NET46.csproj", "{AEE2B258-3492-4937-B6F3-A50D5C4947A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9898DBCC-8C2B-4777-9E2A-F22F82849CA3}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.Metadata.Model.Catel.Shared", "Orc.Metadata.Model.Tests\Orc.Metadata.Model.Catel.Shared\Orc.Metadata.Model.Catel.Shared.shproj", "{0D7924F0-E358-4669-A608-55BE42B64A22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Metadata.Model.Tests.NET40", "Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.NET40\Orc.Metadata.Model.Tests.NET40.csproj", "{3D6C9BA3-93F5-4808-AB6C-D880CD3666F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Metadata.Model.Tests.NET45", "Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.NET45\Orc.Metadata.Model.Tests.NET45.csproj", "{B2674D81-4C38-4B53-9B2C-4B1C8590FD7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orc.Metadata.Model.Tests.NET46", "Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.NET46\Orc.Metadata.Model.Tests.NET46.csproj", "{8BE6AD96-51B4-4C97-BD15-64B022365E38}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Orc.Metadata.Model.Tests.Shared", "Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.Shared\Orc.Metadata.Model.Tests.Shared.shproj", "{FD0E9715-2027-4DB2-9520-7C202A023DA1}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Catel.Shared\Orc.Metadata.Model.Catel.Shared.projitems*{0d7924f0-e358-4669-a608-55be42b64a22}*SharedItemsImports = 13
+		Orc.Metadata.Model\Orc.Metadata.Model.Shared\Orc.Metadata.Model.Shared.projitems*{31f82c56-6ff2-479e-ba4c-5015c3cc8955}*SharedItemsImports = 4
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Catel.Shared\Orc.Metadata.Model.Catel.Shared.projitems*{3d6c9ba3-93f5-4808-ab6c-d880cd3666f9}*SharedItemsImports = 4
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.Shared\Orc.Metadata.Model.Tests.Shared.projitems*{3d6c9ba3-93f5-4808-ab6c-d880cd3666f9}*SharedItemsImports = 4
+		Orc.Metadata.Model\Orc.Metadata.Model.Shared\Orc.Metadata.Model.Shared.projitems*{5b169db3-4d02-4026-abc7-412f86ecc8f2}*SharedItemsImports = 13
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Catel.Shared\Orc.Metadata.Model.Catel.Shared.projitems*{8be6ad96-51b4-4c97-bd15-64b022365e38}*SharedItemsImports = 4
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.Shared\Orc.Metadata.Model.Tests.Shared.projitems*{8be6ad96-51b4-4c97-bd15-64b022365e38}*SharedItemsImports = 4
+		Orc.Metadata.Model\Orc.Metadata.Model.Shared\Orc.Metadata.Model.Shared.projitems*{aee2b258-3492-4937-b6f3-a50d5c4947a7}*SharedItemsImports = 4
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Catel.Shared\Orc.Metadata.Model.Catel.Shared.projitems*{b2674d81-4c38-4b53-9b2c-4b1c8590fd7f}*SharedItemsImports = 4
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.Shared\Orc.Metadata.Model.Tests.Shared.projitems*{b2674d81-4c38-4b53-9b2c-4b1c8590fd7f}*SharedItemsImports = 4
+		Orc.Metadata.Model\Orc.Metadata.Model.Shared\Orc.Metadata.Model.Shared.projitems*{ef8a15ef-7274-4340-93fc-a802dc277a0e}*SharedItemsImports = 4
+		Orc.Metadata.Model.Tests\Orc.Metadata.Model.Tests.Shared\Orc.Metadata.Model.Tests.Shared.projitems*{fd0e9715-2027-4db2-9520-7c202a023da1}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31F82C56-6FF2-479E-BA4C-5015C3CC8955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F82C56-6FF2-479E-BA4C-5015C3CC8955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F82C56-6FF2-479E-BA4C-5015C3CC8955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F82C56-6FF2-479E-BA4C-5015C3CC8955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF8A15EF-7274-4340-93FC-A802DC277A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF8A15EF-7274-4340-93FC-A802DC277A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF8A15EF-7274-4340-93FC-A802DC277A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF8A15EF-7274-4340-93FC-A802DC277A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE2B258-3492-4937-B6F3-A50D5C4947A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE2B258-3492-4937-B6F3-A50D5C4947A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE2B258-3492-4937-B6F3-A50D5C4947A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE2B258-3492-4937-B6F3-A50D5C4947A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6C9BA3-93F5-4808-AB6C-D880CD3666F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6C9BA3-93F5-4808-AB6C-D880CD3666F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6C9BA3-93F5-4808-AB6C-D880CD3666F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6C9BA3-93F5-4808-AB6C-D880CD3666F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2674D81-4C38-4B53-9B2C-4B1C8590FD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2674D81-4C38-4B53-9B2C-4B1C8590FD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2674D81-4C38-4B53-9B2C-4B1C8590FD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2674D81-4C38-4B53-9B2C-4B1C8590FD7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BE6AD96-51B4-4C97-BD15-64B022365E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BE6AD96-51B4-4C97-BD15-64B022365E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BE6AD96-51B4-4C97-BD15-64B022365E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BE6AD96-51B4-4C97-BD15-64B022365E38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B169DB3-4D02-4026-ABC7-412F86ECC8F2} = {186B27D1-FF84-4CBB-8E96-163ABE112ED2}
+		{186B27D1-FF84-4CBB-8E96-163ABE112ED2} = {1BE8A738-AC82-4A58-B771-04E07596450A}
+		{31F82C56-6FF2-479E-BA4C-5015C3CC8955} = {186B27D1-FF84-4CBB-8E96-163ABE112ED2}
+		{EF8A15EF-7274-4340-93FC-A802DC277A0E} = {186B27D1-FF84-4CBB-8E96-163ABE112ED2}
+		{AEE2B258-3492-4937-B6F3-A50D5C4947A7} = {186B27D1-FF84-4CBB-8E96-163ABE112ED2}
+		{0D7924F0-E358-4669-A608-55BE42B64A22} = {9898DBCC-8C2B-4777-9E2A-F22F82849CA3}
+		{3D6C9BA3-93F5-4808-AB6C-D880CD3666F9} = {9898DBCC-8C2B-4777-9E2A-F22F82849CA3}
+		{B2674D81-4C38-4B53-9B2C-4B1C8590FD7F} = {9898DBCC-8C2B-4777-9E2A-F22F82849CA3}
+		{8BE6AD96-51B4-4C97-BD15-64B022365E38} = {9898DBCC-8C2B-4777-9E2A-F22F82849CA3}
+		{FD0E9715-2027-4DB2-9520-7C202A023DA1} = {9898DBCC-8C2B-4777-9E2A-F22F82849CA3}
+	EndGlobalSection
+EndGlobal

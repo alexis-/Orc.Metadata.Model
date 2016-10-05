@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>5b169db3-4d02-4026-abc7-412f86ecc8f2</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Orc.Metadata.Model</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DictionaryExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\IModelPropertyDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\IModelPropertyObjectWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\IModelPropertyMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\GenericMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\EnumerableMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\GenericMetadataAggregator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\GenericMetadataWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\MetadataAggregator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\MetadataCollectionAggregator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Metadatas\StringMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\IModelMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Interfaces\IModelObjectWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\Metadatas\ModelPropertyMetadataCollectionAccessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\ModelMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\ModelMetadataTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\ModelObjectWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\ModelPropertyDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\ModelPropertyObjectWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\ModelPropertyMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\ModelPropertyMetadataTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Providers\Interfaces\IModelMetadataProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Providers\ModelMetadataBaseProvider.cs" />
+  </ItemGroup>
+</Project>
