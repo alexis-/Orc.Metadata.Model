@@ -27,44 +27,36 @@ namespace Orc.Metadata.Model.Providers.Interfaces
 
     /// <summary>
     ///     Factory-pattern interface which generates a
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> with the provided model
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> with the provided model
     ///     instance. See <see cref="IModelMetadataProvider"/> for non-generic version.
     /// </summary>
     /// <typeparam name="TModel">
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> model type constraint for
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> model type constraint for
     ///     (optional) providers contract.
     /// </typeparam>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyObjectWithMetadata{TProperty}" /> property type constraint for
-    ///     (optional) providers contract.
-    /// </typeparam>
-    public interface IModelMetadataProvider<TModel, TProperty> : IMetadataProvider
-        where TProperty : class, IModelPropertyMetadataCollection
-        where TModel : class, IModelMetadataCollection<TProperty>
+    public interface IModelMetadataProvider<TModel> : IMetadataProvider
+        where TModel : class, IModelMetadataCollection
     {
         #region Methods
 
         /// <summary>
         ///     Asynchronously generates a
-        ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> from given model
+        ///     <see cref="IModelObjectWithMetadata{TModel}" /> from given model
         ///     instance.
         /// </summary>
         /// <param name="obj">Model instance.</param>
         /// <returns></returns>
-        Task<IModelObjectWithMetadata<TModel, TProperty>> GetModelMetadataAsync(object obj);
+        Task<IModelObjectWithMetadata<TModel>> GetModelMetadataAsync(object obj);
 
         #endregion
     }
 
     /// <summary>
     ///     Factory-pattern interface which generates a
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> with the provided model
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> with the provided model
     ///     instance.
     /// </summary>
-    public interface IModelMetadataProvider
-        : IModelMetadataProvider<
-            IModelMetadataCollection<IModelPropertyMetadataCollection>,
-            IModelPropertyMetadataCollection>
+    public interface IModelMetadataProvider : IModelMetadataProvider<IModelMetadataCollection>
     {
     }
 }

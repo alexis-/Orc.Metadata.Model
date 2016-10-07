@@ -19,28 +19,44 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-namespace Orc.Metadata.Model.Tests.Models.Properties
+namespace Orc.Metadata.Model.Tests.Models.Properties.Metadatas
 {
-    using Orc.Metadata.Model.Models.Interfaces;
-    using Orc.Metadata.Model.Models.Properties;
+    using System;
 
-    /// <inheritdoc />
-    public class CatelModelPropertyObjectWithMetadata
-        : ModelPropertyObjectWithMetadata<CatelModelPropertyMetadataCollection>
+    public class TestModelPropertyValueMetadata : IMetadata
     {
-        #region Constructors
+        #region Fields
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="CatelModelPropertyObjectWithMetadata" />
-        ///     class.
-        /// </summary>
-        /// <param name="modelProperty">The model property.</param>
-        /// <param name="modelPropertyMetadataCollection">The model property metadata collection.</param>
-        public CatelModelPropertyObjectWithMetadata(
-            IModelPropertyDescriptor modelProperty,
-            CatelModelPropertyMetadataCollection modelPropertyMetadataCollection)
-            : base(modelProperty, modelPropertyMetadataCollection)
+        public const string TestPropertyName = "Test";
+
+        #endregion
+
+
+
+        #region Properties
+
+        public string Name => TestPropertyName;
+        public string DisplayName
         {
+            get { return Name; }
+            set { }
+        }
+        public Type Type => typeof(object);
+
+        #endregion
+
+
+
+        #region Methods
+
+        public object GetValue(object instance)
+        {
+            return instance;
+        }
+
+        public void SetValue(object instance, object value)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

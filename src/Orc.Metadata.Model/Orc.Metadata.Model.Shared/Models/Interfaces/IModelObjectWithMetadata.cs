@@ -22,25 +22,20 @@
 namespace Orc.Metadata.Model.Models.Interfaces
 {
     /// <summary>
-    ///     <see cref="IModelMetadataCollection{TProperty}" /> instance with associated object instance.
+    ///     <see cref="IModelMetadataCollection" /> instance with associated object instance.
     ///     <see cref="IModelObjectWithMetadata" /> for a non-generic version.
     /// </summary>
     /// <typeparam name="TModel">
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> model type constraint for
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> model type constraint for
     ///     (optional) providers contract.
     /// </typeparam>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyObjectWithMetadata{TProperty}" /> property type constraint for
-    ///     (optional) providers contract.
-    /// </typeparam>
-    public interface IModelObjectWithMetadata<out TModel, out TProperty> : IObjectWithMetadata
-        where TProperty : class, IModelPropertyMetadataCollection
-        where TModel : class, IModelMetadataCollection<TProperty>
+    public interface IModelObjectWithMetadata<out TModel> : IObjectWithMetadata
+        where TModel : class, IModelMetadataCollection
     {
         #region Properties
 
         /// <summary>
-        ///     The <see cref="IModelMetadataCollection{TProperty}" /> associated with provided
+        ///     The <see cref="IModelMetadataCollection" /> associated with provided
         ///     model instance.
         /// </summary>
         TModel ModelMetadataCollection { get; }
@@ -49,20 +44,15 @@ namespace Orc.Metadata.Model.Models.Interfaces
         ///     <see cref="IModelPropertyMetadataCollection" /> and property instance.</summary>
         /// <param name="propertyName">Target property propertyName.</param>
         /// <returns></returns>
-        IModelPropertyObjectWithMetadata<TProperty> GetPropertyObjectWithMetadataByName(
-            string propertyName);
+        IModelPropertyObjectWithMetadata GetPropertyObjectWithMetadataByName(string propertyName);
 
         #endregion
     }
 
     /// <summary>
-    ///     <see cref="IModelMetadataCollection{IModelPropertyMetadataCollection}" /> instance
-    ///     with associated object instance.
+    ///     <see cref="IModelMetadataCollection" /> instance with associated object instance.
     /// </summary>
-    public interface IModelObjectWithMetadata :
-        IModelObjectWithMetadata<
-            IModelMetadataCollection<IModelPropertyMetadataCollection>,
-            IModelPropertyMetadataCollection>
+    public interface IModelObjectWithMetadata : IModelObjectWithMetadata<IModelMetadataCollection>
     {
     }
 }

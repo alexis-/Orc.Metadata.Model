@@ -14,7 +14,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Model\Metadatas\CatelModelPropertyDescriptorCollectionAccessor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\CatelModelPropertyDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\CatelModelPropertyMetadataCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\CatelModelPropertyObjectWithMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\Metadatas\CatelModelPropertyValueMetadata.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Providers\CatelModelMetadataProvider.cs" />
   </ItemGroup>

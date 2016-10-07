@@ -33,13 +33,11 @@ namespace Orc.Metadata.Model.Tests.Providers
 
     using ModelObjectType =
         Orc.Metadata.Model.Models.Interfaces.IModelObjectWithMetadata
-        <Orc.Metadata.Model.Tests.Models.Model.CatelModelMetadataCollection,
-            Orc.Metadata.Model.Tests.Models.Properties.CatelModelPropertyMetadataCollection>;
+        <Orc.Metadata.Model.Tests.Models.Model.CatelModelMetadataCollection>;
 
     /// <inheritdoc />
-    public class CatelModelMetadataProvider
-        : ModelMetadataBaseProvider
-            <CatelModelMetadataCollection, CatelModelPropertyMetadataCollection>
+    public class CatelModelMetadataProvider :
+        ModelMetadataBaseProvider<CatelModelMetadataCollection>
     {
         #region Fields
 

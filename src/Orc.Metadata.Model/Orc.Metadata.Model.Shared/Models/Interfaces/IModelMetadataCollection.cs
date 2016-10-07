@@ -30,12 +30,7 @@ namespace Orc.Metadata.Model.Models.Interfaces
     ///     metadatas are dependant on implementation. See <see cref="ModelMetadataTypes" /> for a
     ///     list of common model <see cref="IMetadata" /> types.
     /// </summary>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyObjectWithMetadata" /> type constraint for (optional) providers
-    ///     contract.
-    /// </typeparam>
-    public interface IModelMetadataCollection<out TProperty> : IMetadataCollection
-        where TProperty : class, IModelPropertyMetadataCollection
+    public interface IModelMetadataCollection : IMetadataCollection
     {
         #region Methods
 
@@ -47,7 +42,7 @@ namespace Orc.Metadata.Model.Models.Interfaces
         /// <param name="instance">Model instance.</param>
         /// <param name="propertyName">Target property propertyName.</param>
         /// <returns></returns>
-        IModelPropertyObjectWithMetadata<TProperty> GetPropertyObjectWithMetadataByName(
+        IModelPropertyObjectWithMetadata GetPropertyObjectWithMetadataByName(
             object instance, string propertyName);
 
         /// <summary>

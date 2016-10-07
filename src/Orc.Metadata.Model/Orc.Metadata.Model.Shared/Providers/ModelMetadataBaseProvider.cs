@@ -31,21 +31,15 @@ namespace Orc.Metadata.Model.Providers
 
     /// <summary>
     ///     Factory-pattern interface which generates a
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> with the provided model
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> with the provided model
     ///     instance. See <see cref="ModelMetadataBaseProvider"/> for non-generic version.
     /// </summary>
     /// <typeparam name="TModel">
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> model type constraint for
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> model type constraint for
     ///     (optional) providers contract.
     /// </typeparam>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyObjectWithMetadata{TProperty}" /> property type constraint for
-    ///     (optional) providers contract.
-    /// </typeparam>
-    public abstract class ModelMetadataBaseProvider<TModel, TProperty> :
-        IModelMetadataProvider<TModel, TProperty>
-        where TProperty : class, IModelPropertyMetadataCollection
-        where TModel : class, IModelMetadataCollection<TProperty>
+    public abstract class ModelMetadataBaseProvider<TModel> : IModelMetadataProvider<TModel>
+        where TModel : class, IModelMetadataCollection
     {
         #region Fields
 
@@ -85,20 +79,19 @@ namespace Orc.Metadata.Model.Providers
 
         /// <summary>
         ///     Asynchronously generates a
-        ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> from given model
+        ///     <see cref="IModelObjectWithMetadata{TModel}" /> from given model
         ///     instance.
         /// </summary>
         /// <param name="obj">Model instance.</param>
         /// <returns></returns>
-        public abstract Task<IModelObjectWithMetadata<TModel, TProperty>> GetModelMetadataAsync(
-            object obj);
+        public abstract Task<IModelObjectWithMetadata<TModel>> GetModelMetadataAsync(object obj);
 
         /// <summary>Configures the <see cref="TModel"/>.</summary>
         /// <param name="modelConfigurationAction">The model configuration action.</param>
         public abstract void ConfigureWith(Action<TModel> modelConfigurationAction);
 
         private async Task<IObjectWithMetadata> GetMetadataInternalAsync(
-            Task<IModelObjectWithMetadata<TModel, TProperty>> task)
+            Task<IModelObjectWithMetadata<TModel>> task)
         {
             return await task.ConfigureAwait(false);
         }
@@ -108,13 +101,11 @@ namespace Orc.Metadata.Model.Providers
 
     /// <summary>
     ///     Factory-pattern interface which generates a
-    ///     <see cref="IModelObjectWithMetadata{TModel, TProperty}" /> with the provided model
+    ///     <see cref="IModelObjectWithMetadata{TModel}" /> with the provided model
     ///     instance. See <see cref="IModelMetadataProvider"/> for non-generic version.
     /// </summary>
-    public abstract class ModelMetadataBaseProvider
-        : ModelMetadataBaseProvider<
-            IModelMetadataCollection<IModelPropertyMetadataCollection>,
-            IModelPropertyMetadataCollection>
+    public abstract class ModelMetadataBaseProvider :
+        ModelMetadataBaseProvider<IModelMetadataCollection>
     {
     }
 }

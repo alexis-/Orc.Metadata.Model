@@ -30,22 +30,21 @@ namespace Orc.Metadata.Model.Tests.Models.Model
     using Orc.Metadata.Model.Models.Model;
     using Orc.Metadata.Model.Models.Model.Metadatas;
     using Orc.Metadata.Model.Models.Properties;
-    using Orc.Metadata.Model.Tests.Catel.Models.Properties;
     using Orc.Metadata.Model.Tests.Models.Model.Metadatas;
     using Orc.Metadata.Model.Tests.Models.Properties;
 
     /// <inheritdoc />
-    public class CatelModelMetadataCollection :
-        ModelMetadataCollection<CatelModelMetadataCollection>
+    public class TestModelMetadataCollection :
+        ModelMetadataCollection<TestModelMetadataCollection>
     {
         #region Constructors
 
-        public CatelModelMetadataCollection()
+        public TestModelMetadataCollection()
         {
             PropertyMetadatasAccessor =
                 new ModelPropertyMetadataCollectionAccessor(
-                        new CatelModelPropertyMetadataCollection());
-            PropertyDescriptorsAccessor = new CatelModelPropertyDescriptorCollectionAccessor(true, true);
+                    new TestModelPropertyMetadataCollection());
+            PropertyDescriptorsAccessor = new TestModelPropertyDescriptorCollectionAccessor();
         }
 
         #endregion
@@ -66,29 +65,13 @@ namespace Orc.Metadata.Model.Tests.Models.Model
 
         #region Methods
 
-        public override CatelModelMetadataCollection ConfigurePropertiesWith(
+        public override TestModelMetadataCollection ConfigurePropertiesWith(
             Action<IModelPropertyMetadataCollection> propertyConfigurationAction)
         {
-            var propertyMetadataCollection = new CatelModelPropertyMetadataCollection();
+            var propertyMetadataCollection = new TestModelPropertyMetadataCollection();
             propertyConfigurationAction?.Invoke(propertyMetadataCollection);
 
             PropertyMetadatasAccessor.SetTypedValue(null, propertyMetadataCollection);
-
-            return this;
-        }
-
-        public CatelModelMetadataCollection IncludeCatelProperties(bool include)
-        {
-            ((CatelModelPropertyDescriptorCollectionAccessor)PropertyDescriptorsAccessor)
-                .IncludeCatelProperties = include;
-
-            return this;
-        }
-
-        public CatelModelMetadataCollection IncludeNonCatelProperties(bool include)
-        {
-            ((CatelModelPropertyDescriptorCollectionAccessor)PropertyDescriptorsAccessor)
-                .IncludeNonCatelProperties = include;
 
             return this;
         }
@@ -107,8 +90,7 @@ namespace Orc.Metadata.Model.Tests.Models.Model
 
             var propertyMetadatas = PropertyMetadatasAccessor.GetTypedValue(instance);
 
-            return new ModelPropertyObjectWithMetadata(
-                modelPropertyDescriptor, propertyMetadatas);
+            return null;
         }
 
         #endregion

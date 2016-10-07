@@ -4,12 +4,7 @@
     ///     <see cref="IModelPropertyMetadataCollection" /> instance with associated model property instance.
     ///     See <see cref="IModelPropertyObjectWithMetadata"/> for non-generic version.
     /// </summary>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyObjectWithMetadata" /> type constraint for (optional) providers
-    ///     contract.
-    /// </typeparam>
-    public interface IModelPropertyObjectWithMetadata<out TProperty> : IObjectWithMetadata
-        where TProperty : class, IModelPropertyMetadataCollection
+    public interface IModelPropertyObjectWithMetadata : IObjectWithMetadata
     {
         #region Properties
 
@@ -17,14 +12,8 @@
         ///     The <see cref="IModelPropertyMetadataCollection" /> associated with provided model
         ///     property instance.
         /// </summary>
-        TProperty ModelPropertyMetadataCollection { get; }
+        IModelPropertyMetadataCollection ModelPropertyMetadataCollection { get; }
 
         #endregion
     }
-
-    /// <summary>
-    ///     <see cref="IModelPropertyMetadataCollection" /> instance with associated object property instance.
-    /// </summary>
-    public interface IModelPropertyObjectWithMetadata
-        : IModelPropertyObjectWithMetadata<IModelPropertyMetadataCollection> { }
 }

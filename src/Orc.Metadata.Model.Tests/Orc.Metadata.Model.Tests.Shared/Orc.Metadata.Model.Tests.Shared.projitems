@@ -9,7 +9,13 @@
     <Import_RootNamespace>Orc.Metadata.Model.Tests</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\Metadatas\TestModelPropertyDescriptorCollectionAccessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Model\TestModelMetadataCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\Metadatas\TestModelPropertyValueMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\TestModelPropertyDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Properties\TestModelPropertyMetadataCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tests\Catel.Tests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tests\Catel.With.Test.Metadata.Collection.Tests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tests\Helpers\Catel.TestModel.Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tests\Helpers\Metadata.Assert.Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tests\Helpers\Random.Helper.cs" />

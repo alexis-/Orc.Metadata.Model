@@ -19,36 +19,33 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-namespace Orc.Metadata.Model.Tests.Models.Model
+namespace Orc.Metadata.Model.Tests.Models.Properties
 {
-    using global::Catel;
-    using global::Catel.Data;
-    using global::Catel.Logging;
+    using System.Collections.Generic;
+    using System.Linq;
 
-    using Orc.Metadata.Model.Models.Model;
+    using Orc.Metadata.Model.Models.Properties;
+    using Orc.Metadata.Model.Tests.Models.Properties.Metadatas;
 
     /// <inheritdoc />
-    public class CatelModelObjectWithMetadata
-        : ModelObjectWithMetadata<CatelModelMetadataCollection>
+    public class TestModelPropertyMetadataCollection : ModelPropertyMetadataCollection
     {
         #region Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="CatelModelObjectWithMetadata" /> class.</summary>
-        /// <param name="modelInstance">The model instance.</param>
-        /// <param name="modelMetadataCollection">The model metadata collection.</param>
-        public CatelModelObjectWithMetadata(
-            object modelInstance, CatelModelMetadataCollection modelMetadataCollection)
-            : base(modelInstance, modelMetadataCollection)
+        public TestModelPropertyMetadataCollection()
         {
-            Argument.IsNotNull(() => modelInstance);
-
-            if (modelInstance is ModelBase == false)
-            {
-                LogManager.GetCurrentClassLogger()
-                          .Warning(
-                              $"modelInstance should be of type ModelBase, type is : {modelInstance.GetType()}");
-            }
+            TestMetadata = new TestModelPropertyValueMetadata();
         }
+
+        #endregion
+
+
+
+        #region Properties
+
+        public override IEnumerable<IMetadata> All => base.All.Union(new[] { TestMetadata });
+
+        public TestModelPropertyValueMetadata TestMetadata { get; set; }
 
         #endregion
     }

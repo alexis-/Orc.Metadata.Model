@@ -30,27 +30,22 @@ namespace Orc.Metadata.Model.Models.Properties
     using Orc.Metadata.Model.Models.Interfaces;
 
     /// <summary>
-    ///     <see cref="TProperty" /> instance with associated object instance.
+    ///     <see cref="IModelPropertyMetadataCollection" /> instance with associated object instance.
     ///     <see cref="ModelPropertyObjectWithMetadata" /> for a non-generic version.
     /// </summary>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyObjectWithMetadata{TProperty}" /> property type constraint for
-    ///     (optional) providers contract.
-    /// </typeparam>
-    public class ModelPropertyObjectWithMetadata<TProperty> :
-        IModelPropertyObjectWithMetadata<TProperty>
-        where TProperty : class, IModelPropertyMetadataCollection
+    public class ModelPropertyObjectWithMetadata : IModelPropertyObjectWithMetadata
     {
         #region Constructors
 
         /// <summary>
         ///     Initializes a new instance of the
-        ///     <see cref="ModelPropertyObjectWithMetadata{TProperty}" /> class.
+        ///     <see cref="ModelPropertyObjectWithMetadata" /> class.
         /// </summary>
         /// <param name="instance">The instance.</param>
         /// <param name="modelPropertyMetadataCollection">The model metadata.</param>
         public ModelPropertyObjectWithMetadata(
-            IModelPropertyDescriptor instance, TProperty modelPropertyMetadataCollection)
+            IModelPropertyDescriptor instance,
+            IModelPropertyMetadataCollection modelPropertyMetadataCollection)
         {
             Argument.IsNotNull(() => instance);
             Argument.IsNotNull(() => modelPropertyMetadataCollection);
@@ -69,7 +64,7 @@ namespace Orc.Metadata.Model.Models.Properties
         public object Instance { get; }
         public IModelPropertyDescriptor PropertyDescriptor { get; }
         public IMetadataCollection MetadataCollection => ModelPropertyMetadataCollection;
-        public TProperty ModelPropertyMetadataCollection { get; }
+        public IModelPropertyMetadataCollection ModelPropertyMetadataCollection { get; }
 
         #endregion
 
@@ -105,31 +100,6 @@ namespace Orc.Metadata.Model.Models.Properties
             }
 
             return true;
-        }
-
-        #endregion
-    }
-
-    /// <summary>
-    ///     <see cref="IModelPropertyMetadataCollection" /> instance with associated object instance.
-    /// </summary>
-    public class ModelPropertyObjectWithMetadata :
-        ModelPropertyObjectWithMetadata<IModelPropertyMetadataCollection>
-    {
-        #region Constructors
-
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="ModelPropertyObjectWithMetadata" />
-        ///     class.
-        /// </summary>
-        /// <param name="instance">The instance.</param>
-        /// <param name="modelPropertyMetadataCollection">The model metadata.</param>
-        public ModelPropertyObjectWithMetadata(
-            IModelPropertyDescriptor instance,
-            IModelPropertyMetadataCollection modelPropertyMetadataCollection)
-            : base(instance, modelPropertyMetadataCollection)
-        {
         }
 
         #endregion

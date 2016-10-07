@@ -19,41 +19,32 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-namespace Orc.Metadata.Model.Models.Model.Metadatas
+namespace Orc.Metadata.Model.Tests.Models.Model.Metadatas
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
 
-    using Catel;
+    using global::Catel.Data;
 
     using Orc.Metadata.Model.Models.Interfaces;
     using Orc.Metadata.Model.Models.Metadatas;
+    using Orc.Metadata.Model.Models.Model;
+    using Orc.Metadata.Model.Models.Properties;
+    using Orc.Metadata.Model.Tests.Catel.Models.Properties;
+    using Orc.Metadata.Model.Tests.Tests.Models;
 
-    /// <summary>Provides access to the <see cref="IModelPropertyMetadataCollection" />.</summary>
-    public class ModelPropertyMetadataCollectionAccessor
-        : MetadataAggregator<IModelPropertyMetadataCollection>
+    public class TestModelPropertyDescriptorCollectionAccessor
+        : MetadataAggregator<IEnumerable<IModelPropertyDescriptor>>
     {
-        #region Fields
-
-        private IModelPropertyMetadataCollection _propertyMetadataCollection;
-
-        #endregion
-
-
-
         #region Constructors
 
         /// <summary>
         ///     Initializes a new instance of the
-        ///     <see cref="ModelPropertyMetadataCollectionAccessor" />
-        ///     class.
+        ///     <see cref="TestModelPropertyDescriptorCollectionAccessor" /> class.
         /// </summary>
-        /// <param name="propertyMetadataCollection">The property metadata collection.</param>
-        public ModelPropertyMetadataCollectionAccessor(
-            IModelPropertyMetadataCollection propertyMetadataCollection)
+        public TestModelPropertyDescriptorCollectionAccessor()
         {
-            Argument.IsNotNull(() => propertyMetadataCollection);
-
-            _propertyMetadataCollection = propertyMetadataCollection;
         }
 
         #endregion
@@ -62,7 +53,7 @@ namespace Orc.Metadata.Model.Models.Model.Metadatas
 
         #region Properties
 
-        public override string Name => ModelMetadataTypes.PropertyMetadatas;
+        public override string Name => ModelMetadataTypes.PropertyDescriptors;
         public override string DisplayName
         {
             get { return Name; }
@@ -75,25 +66,24 @@ namespace Orc.Metadata.Model.Models.Model.Metadatas
 
         #region Methods
 
-        protected override IModelPropertyMetadataCollection AggregateValue(
+        protected override IEnumerable<IModelPropertyDescriptor> AggregateValue(
             object instance,
-            IEnumerable<GenericMetadata<IModelPropertyMetadataCollection>> metadatas)
+            IEnumerable<GenericMetadata<IEnumerable<IModelPropertyDescriptor>>> metadatas)
         {
-            foreach (var metadata in metadatas)
+            return new[]
             {
-                var propertyMetadataCollection = metadata.GetTypedValue(instance);
-
-                _propertyMetadataCollection.MergePropertyMetadataCollection(
-                    propertyMetadataCollection);
-            }
-
-            return _propertyMetadataCollection;
+                new TestModelPropertyDescriptor(instance, TestModelPropertyDescriptor.TestKey),
+                new TestModelPropertyDescriptor(instance, nameof(CatelTestModel.IntProperty)),
+                new TestModelPropertyDescriptor(instance, nameof(CatelTestModel.StringProperty)),
+                new TestModelPropertyDescriptor(instance, nameof(CatelTestModel.IntCatelProperty)),
+                new TestModelPropertyDescriptor(instance, nameof(CatelTestModel.StringCatelProperty))
+            };
         }
 
         public override void SetTypedValue(
-            object instance, IModelPropertyMetadataCollection value)
+            object instance, IEnumerable<IModelPropertyDescriptor> value)
         {
-            _propertyMetadataCollection = value;
+            throw new InvalidOperationException("Value cannot be set.");
         }
 
         #endregion

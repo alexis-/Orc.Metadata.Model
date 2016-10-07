@@ -31,20 +31,14 @@ namespace Orc.Metadata.Model.Models.Model
     /// <summary>
     ///     Provides a collection of <see cref="IMetadata" /> for models object. Avalaible
     ///     metadatas are dependant on implementation. See <see cref="ModelMetadataTypes" /> for a
-    ///     list of common model <see cref="IMetadata" /> types. See
-    ///     <see cref="ModelMetadataCollection{TChild}"/> for non-TProperty-generic version.
+    ///     list of common model <see cref="IMetadata" /> types.
     /// </summary>
     /// <typeparam name="TChild">
     ///     Child type for (optional) fluent building, see <see cref="MetadataCollectionAggregator{TChild}"/>.
     /// </typeparam>
-    /// <typeparam name="TProperty">
-    ///     <see cref="IModelPropertyMetadataCollection" /> type constraint for (optional) providers
-    ///     contract.
-    /// </typeparam>
-    public abstract class ModelMetadataCollection<TChild, TProperty>
-        : MetadataCollectionAggregator<TChild>, IModelMetadataCollection<TProperty>
-        where TChild : ModelMetadataCollection<TChild, TProperty>
-        where TProperty : class, IModelPropertyMetadataCollection
+    public abstract class ModelMetadataCollection<TChild>
+        : MetadataCollectionAggregator<TChild>, IModelMetadataCollection
+        where TChild : ModelMetadataCollection<TChild>
     {
         #region Fields
 
@@ -95,9 +89,9 @@ namespace Orc.Metadata.Model.Models.Model
                         PropertyDescriptorsAccessor
                     });
 
-        /// <summary>Gets the <see cref="TProperty" /> accessor.</summary>
+        /// <summary>Gets the <see cref="IModelPropertyMetadataCollection" /> accessor.</summary>
         /// <returns></returns>
-        public abstract MetadataAggregator<TProperty> PropertyMetadatasAccessor
+        public abstract MetadataAggregator<IModelPropertyMetadataCollection> PropertyMetadatasAccessor
         {
             get;
         }
@@ -134,18 +128,20 @@ namespace Orc.Metadata.Model.Models.Model
             }
         }
 
-        /// <summary>Configures the <see cref="TProperty"/>.</summary>
+        /// <summary>Configures the <see cref="IModelPropertyMetadataCollection"/>.</summary>
         /// <param name="propertyConfigurationAction">The property configuration action.</param>
-        public abstract TChild ConfigurePropertiesWith(Action<TProperty> propertyConfigurationAction);
+        public abstract TChild ConfigurePropertiesWith(
+            Action<IModelPropertyMetadataCollection> propertyConfigurationAction);
 
         /// <summary>
-        ///     Generates a <see cref="IModelPropertyObjectWithMetadata{TProperty}" /> with
-        ///     associated <see cref="IModelPropertyMetadataCollection" /> and property instance.
+        ///     Generates a <see cref="IModelPropertyObjectWithMetadata" /> with associated
+        ///     <see cref="IModelPropertyMetadataCollection" /> and
+        ///     <see cref="IModelPropertyDescriptor" />.
         /// </summary>
         /// <param name="instance">Model instance.</param>
-        /// <param name="propertyName">Target property name.</param>
+        /// <param name="propertyName">Target property propertyName.</param>
         /// <returns></returns>
-        public abstract IModelPropertyObjectWithMetadata<TProperty> GetPropertyObjectWithMetadataByName(
+        public abstract IModelPropertyObjectWithMetadata GetPropertyObjectWithMetadataByName(
             object instance, string propertyName);
 
         /// <summary>
@@ -178,49 +174,13 @@ namespace Orc.Metadata.Model.Models.Model
                         md => md.Name == ModelMetadataTypes.PropertyDescriptors);
 
                 PropertyMetadatasAccessor.AddMetadata(propMetadataAccessor);
-                PropertyMetadatasAccessor.AddMetadata(propNames);
+                PropertyDescriptorsAccessor.AddMetadata(propNames);
 
                 MergeMetadatas(
                     metadataCollection.All.Except(new[] { propNames, propMetadataAccessor }));
             }
 
             return (TChild)this;
-        }
-
-        #endregion
-    }
-
-    /// <summary>
-    ///     Provides a collection of <see cref="IMetadata" /> for models object. Avalaible
-    ///     metadatas are dependant on implementation. See <see cref="ModelMetadataTypes" /> for a
-    ///     list of common model <see cref="IMetadata" /> types.
-    /// </summary>
-    public abstract class ModelMetadataCollection<TChild>
-        : ModelMetadataCollection<TChild, IModelPropertyMetadataCollection>
-          where TChild : ModelMetadataCollection<TChild>
-    {
-        #region Constructors
-
-        /// <summary>
-        ///     Initializes a new instance of the
-        ///     <see cref="ModelMetadataCollection{TChild}" /> class.
-        /// </summary>
-        /// <param name="mergeProperties">Try and merge {TProperty} metadatas</param>
-        /// <param name="metadataCollections">The metadata collections.</param>
-        protected ModelMetadataCollection(
-            bool mergeProperties = true, params IMetadataCollection[] metadataCollections)
-            : base(mergeProperties, metadataCollections)
-        {
-        }
-
-        /// <summary>
-        ///     Initializes a new instance of the
-        ///     <see cref="ModelMetadataCollection{TChild}" /> class.
-        /// </summary>
-        /// <param name="mergeProperties">Try and merge {TProperty} metadatas</param>
-        protected ModelMetadataCollection(bool mergeProperties = true)
-            : base(mergeProperties)
-        {
         }
 
         #endregion

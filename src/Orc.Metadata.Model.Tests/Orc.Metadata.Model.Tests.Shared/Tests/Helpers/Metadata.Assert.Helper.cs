@@ -36,11 +36,10 @@ namespace Orc.Metadata.Model.Tests.Tests.Helpers
     {
         #region Methods
 
-        public static void AssertPropertiesContain<TModel, TProperty>(
-            this IModelObjectWithMetadata<TModel, TProperty> modelObjectWithMetadata,
+        public static void AssertPropertiesContain<TModel>(
+            this IModelObjectWithMetadata<TModel> modelObjectWithMetadata,
             IEnumerable<string> propertiesName)
-            where TProperty : class, IModelPropertyMetadataCollection
-            where TModel : class, IModelMetadataCollection<TProperty>
+            where TModel : class, IModelMetadataCollection
         {
             Argument.IsNotNull(() => modelObjectWithMetadata);
 
@@ -52,9 +51,9 @@ namespace Orc.Metadata.Model.Tests.Tests.Helpers
                                 .Contain(pd => propertiesName.Contains(pd.PropertyName));
         }
 
-        public static void AssertValueEqualTo<TProperty, TValue>(
-            this IModelPropertyObjectWithMetadata<TProperty> modelPropertyObjectWithMetadata,
-            TValue value) where TProperty : class, IModelPropertyMetadataCollection
+        public static void AssertValueEqualTo<TValue>(
+            this IModelPropertyObjectWithMetadata modelPropertyObjectWithMetadata,
+            TValue value)
         {
             Argument.IsNotNull(() => modelPropertyObjectWithMetadata);
 
